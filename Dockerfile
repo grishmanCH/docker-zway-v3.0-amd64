@@ -19,7 +19,7 @@ RUN apt-get -y update && \
 RUN apt-get -y update && \
     apt-get -y install wget && \
     wget http://razberry.z-wave.me/z-way-server/z-way-server-Ubuntu-v${zversion}.tgz && \
-    tar -zxf z-way-server-Ubuntu-v${zversion}.tgz -C /opt && \
+    tar -vzxf z-way-server-Ubuntu-v${zversion}.tgz -C /opt && \
     apt-get -y remove wget && \
     apt-get -y autoremove && apt-get -y autoclean && \
     rm -rf /var/lib/apt/lists/*
