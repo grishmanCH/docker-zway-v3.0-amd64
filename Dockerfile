@@ -27,5 +27,8 @@ RUN apt-get -y update && \
 VOLUME /opt/z-way-server/config
 VOLUME /var/log
 
+#Startup
 EXPOSE 8083
-CMD export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/z-way-server/libs && /opt/z-way-server/z-way-server
+ADD startup.sh /startup.sh
+RUN chmod +x /startup.sh
+ENTRYPOINT /startup.sh
