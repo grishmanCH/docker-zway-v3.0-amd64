@@ -1,2 +1,3 @@
 # docker-zway-amd64
-WORK IN PROGRESS!
+
+z-way-server image for version 3.0.x

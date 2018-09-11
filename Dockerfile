@@ -1,11 +1,11 @@
 FROM ubuntu:xenial
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV zversion=2.3.6
+ENV zversion=3.0.0-rc15
 
 WORKDIR /tmp/
 
-#Install Dependencies
+#install deps
 RUN apt-get -y update && \
     apt-get -y upgrade && \
     apt-get -y install sharutils tzdata gawk libc-ares2 && \
@@ -15,7 +15,7 @@ RUN apt-get -y update && \
     apt-get -y autoremove && apt-get -y autoclean && \
     rm -rf /var/lib/apt/lists/*
 
-#Install z-Wave
+#install z-way-server
 RUN apt-get -y update && \
     apt-get -y install wget && \
     wget http://razberry.z-wave.me/z-way-server/z-way-server-Ubuntu-v${zversion}.tgz && \
@@ -24,10 +24,11 @@ RUN apt-get -y update && \
     apt-get -y autoremove && apt-get -y autoclean && \
     rm -rf /var/lib/apt/lists/*
 
+VOLUME /opt/z-way-server/automation/storage
 VOLUME /opt/z-way-server/config
 VOLUME /var/log
 
-#Startup
+#startup
 EXPOSE 8083
 ADD startup.sh /startup.sh
 RUN chmod +x /startup.sh
