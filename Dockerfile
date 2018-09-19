@@ -8,10 +8,7 @@ WORKDIR /tmp/
 #install deps
 RUN apt-get -y update && \
     apt-get -y upgrade && \
-    apt-get -y install sharutils tzdata gawk libc-ares2 && \
-    apt-get -y install libavahi-compat-libdnssd-dev && \
-    apt-get -y install libxml2 libarchive-dev curl && \
-    apt-get -y install libcurl4-openssl-dev && \
+    apt-get -y install sharutils tzdata gawk libc-ares2 libavahi-compat-libdnssd-dev libarchive-dev libcurl4-openssl-dev unzip wget && \
     apt-get -y autoremove && apt-get -y autoclean && \
     rm -rf /var/lib/apt/lists/*
 
