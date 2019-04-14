@@ -1,0 +1,17 @@
+version: "3.6"
+services:
+
+  z-way-server:
+    image: iblis82/docker-zway-v3.0-amd64
+    container_name: zway-server
+    restart: unless-stopped
+    device:
+      - "/dev/ttyACM0:/dev/ttyUZB1"
+    ports:
+      - "8083:8083"
+    volumes:
+      - ${USERDIR}/docker/z-way-server/storage:/opt/z-way-server/automation/storage
+      - ${USERDIR}/docker/z-way-server/config:/opt/z-way-server/config
+      - ${USERDIR}/docker/z-way-server/log:/var/log
+    environment:
+      - TZ=Europe/Oslo
