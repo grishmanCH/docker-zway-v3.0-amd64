@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV zversion=2.3.8-rc5
+ENV zversion=3.0.0-rc24-2-gd8ce5d0
 
 WORKDIR /tmp/
 
