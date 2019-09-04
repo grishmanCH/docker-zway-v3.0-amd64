@@ -2,6 +2,7 @@ FROM ubuntu:xenial
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV zversion=3.0.0
+ENV ZWAVE_DEVICE /dev/ttyACM0
 
 WORKDIR /tmp/
 
