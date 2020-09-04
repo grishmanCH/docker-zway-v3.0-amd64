@@ -2,7 +2,7 @@ version: "3.6"
 services:
 
   z-way-server:
-    image: iblis82/docker-zway-v3.0-amd64
+    image: grishmanCH/docker-zway-v3.0-amd64
     container_name: zway-server
     restart: unless-stopped
     devices:
@@ -14,4 +14,4 @@ services:
       - ${USERDIR}/docker/z-way-server/config:/opt/z-way-server/config
       - ${USERDIR}/docker/z-way-server/log:/var/log
     environment:
-      - TZ=Europe/Oslo
+      - TZ=Europe/Zurich

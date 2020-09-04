@@ -1,7 +1,7 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV zversion=3.0.0
+ENV zversion=3.1.0
 ENV ZWAVE_DEVICE /dev/ttyACM0
 
 WORKDIR /tmp/
@@ -16,7 +16,7 @@ RUN apt-get -y update && \
 #install z-way-server
 RUN apt-get -y update && \
     apt-get -y install wget && \
-    wget http://razberry.z-wave.me/z-way-server/z-way-server-Ubuntu-v${zversion}.tgz && \
+    wget https://storage.z-wave.me/z-way-server/z-way-server-Ubuntu-v{zversion}.tgz && \
     tar -vzxf z-way-server-Ubuntu-v${zversion}.tgz -C /opt && \
     apt-get -y autoremove && apt-get -y autoclean && \
     rm -rf /var/lib/apt/lists/*
